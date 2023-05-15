@@ -26,6 +26,7 @@ kotlin {
                     exclude(group = "org.jetbrains.compose.material", module = "material")
                 }
                 implementation("org.jetbrains.compose.material3:material3-desktop:1.4.0")
+                implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
             }
         }
         val jvmTest by getting
@@ -39,6 +40,11 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "PlanetXCompose"
             packageVersion = "1.0.0"
+            macOS {
+                val apiumIcon = project.file("src/jvmMain/resources/app/apium_dark.icns")
+                println("TEST: $apiumIcon | ${apiumIcon.isFile}")
+                iconFile.set(apiumIcon)
+            }
         }
     }
 }

@@ -39,7 +39,7 @@ fun SectionLabel(
             text = text,
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
-            modifier = modifier.padding(start = padding, end = padding),
+            modifier = modifier.padding(horizontal = padding),
             textAlign = textAlign,
             color = ApiumBlack
         )
