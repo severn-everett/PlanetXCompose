@@ -41,9 +41,7 @@ compose.desktop {
             packageName = "PlanetXCompose"
             packageVersion = "1.0.0"
             macOS {
-                val apiumIcon = project.file("src/jvmMain/resources/app/apium_dark.icns")
-                println("TEST: $apiumIcon | ${apiumIcon.isFile}")
-                iconFile.set(apiumIcon)
+                iconFile.set(project.file("src/jvmMain/resources/app/apium_dark.icns"))
             }
         }
     }
