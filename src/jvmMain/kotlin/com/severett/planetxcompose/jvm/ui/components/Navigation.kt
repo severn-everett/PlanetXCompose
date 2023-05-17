@@ -7,7 +7,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
@@ -23,21 +22,19 @@ fun TopBar(currentTitle: String = "") {
 }
 
 @Composable
-fun BottomNavigationBar(currentItem: MutableState<Int>) {
+fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
     NavigationBar {
         navItems.forEachIndexed { i, navItem ->
             NavigationBarItem(
-                selected = currentItem.value == i,
-                onClick = { currentItem.value = i },
+                selected = currentIndex == i,
+                onClick = { onChange.invoke(i) },
                 icon = {
                        Icon(
                            painter = painterResource(navItem.navIcon),
                            contentDescription = "${navItem.title}_NavItem"
                        )
                 },
-                label = {
-                    Text(text = navItem.title, fontFamily = europaFamily, fontSize = 13.sp)
-                },
+                label = { Text(text = navItem.title, fontFamily = europaFamily, fontSize = 13.sp) },
                 alwaysShowLabel = true,
             )
         }
