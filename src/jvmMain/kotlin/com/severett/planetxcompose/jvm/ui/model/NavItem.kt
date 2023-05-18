@@ -2,6 +2,7 @@ package com.severett.planetxcompose.jvm.ui.model
 
 import androidx.compose.runtime.Composable
 import com.severett.planetxcompose.jvm.ui.sections.AtomicFU
+import com.severett.planetxcompose.jvm.ui.sections.Serializable
 
 data class NavItem(
     val route: String,
@@ -11,6 +12,12 @@ data class NavItem(
 )
 
 val navItems = listOf(
+    NavItem(
+        route = "/serializable",
+        title = "Serializable",
+        navIcon = "icon/ic_json_black_24dp.xml",
+        content = { Serializable() }
+    ),
     NavItem(
         route = "/atomicFU",
         title = "AtomicFU",

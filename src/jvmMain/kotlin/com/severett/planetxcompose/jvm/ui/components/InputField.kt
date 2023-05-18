@@ -32,9 +32,9 @@ fun InputField(
         value = textValue,
         modifier = modifier
             .width(width)
-            .height(50.dp),
+            .height(54.dp),
         placeholder = { Text(text = placeholder) },
-        textStyle = TextStyle(fontSize = 17.sp, color = ApiumBlack),
+        textStyle = TextStyle(fontSize = 18.sp, color = ApiumBlack),
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         onValueChange = onValueChange,
