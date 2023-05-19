@@ -2,6 +2,7 @@ package com.severett.planetxcompose.jvm.ui.model
 
 import androidx.compose.runtime.Composable
 import com.severett.planetxcompose.jvm.ui.sections.AtomicFU
+import com.severett.planetxcompose.jvm.ui.sections.HTML
 import com.severett.planetxcompose.jvm.ui.sections.Serializable
 
 data class NavItem(
@@ -23,5 +24,11 @@ val navItems = listOf(
         title = "AtomicFU",
         navIcon = "icon/ic_atomicfu_black_24dp.xml",
         content = { AtomicFU() }
+    ),
+    NavItem(
+        route = "/html",
+        title = "HTML",
+        navIcon = "icon/ic_HTML_black_24dp.xml",
+        content = { HTML() }
     ),
 )
