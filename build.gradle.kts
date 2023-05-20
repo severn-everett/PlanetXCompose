@@ -25,7 +25,7 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
             }
         }
