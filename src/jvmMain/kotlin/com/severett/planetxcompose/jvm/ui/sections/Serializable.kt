@@ -2,7 +2,6 @@ package com.severett.planetxcompose.jvm.ui.sections
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.text.KeyboardActions
@@ -23,9 +22,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.severett.planetxcompose.jvm.model.Foo
-import com.severett.planetxcompose.jvm.model.ThirdPartyFoo
-import com.severett.planetxcompose.jvm.serde.ThirdPartyFooSerializer
+import com.severett.planetxcompose.common.model.Foo
+import com.severett.planetxcompose.common.model.ThirdPartyFoo
+import com.severett.planetxcompose.common.serde.ThirdPartyFooSerializer
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.InputField
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
@@ -35,9 +34,7 @@ import kotlinx.serialization.json.Json
 
 private val inputBottomMargin = 4.dp
 private val displayTopMargin = 6.dp
-private val displayLabelMargin = 113.dp
 private val displayStrSize = 18.sp
-private val displayStrPadding = 5.dp
 private val buttonFontSize = 20.sp
 
 @OptIn(ExperimentalComposeUiApi::class)

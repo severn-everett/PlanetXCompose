@@ -1,6 +1,6 @@
-package com.severett.planetxcompose.jvm.serde
+package com.severett.planetxcompose.common.serde
 
-import com.severett.planetxcompose.jvm.model.ThirdPartyFoo
+import com.severett.planetxcompose.common.model.ThirdPartyFoo
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer

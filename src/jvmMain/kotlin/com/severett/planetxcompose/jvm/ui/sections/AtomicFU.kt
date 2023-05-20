@@ -19,17 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.severett.planetxcompose.common.model.lockDemo
+import com.severett.planetxcompose.common.model.runRace
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
-import kotlinx.atomicfu.atomic
-import kotlinx.atomicfu.locks.reentrantLock
-import kotlinx.atomicfu.locks.withLock
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
-private const val LIMIT = 10_000
 private val buttonWidth = 120.dp
 private val resultsTopMargin = 32.dp
 private val buttonFontSize = 18.sp
@@ -111,31 +105,4 @@ private inline fun RowScope.DisplayColumn(content: @Composable ColumnScope.() ->
         horizontalAlignment = Alignment.CenterHorizontally,
         content = content
     )
-}
-
-private fun runRace(): Pair<Int, Int> {
-    val safeCounter = atomic(0)
-    var unsafeCounter = 0
-    runBlocking {
-        (0 until LIMIT).map {
-            CoroutineScope(Dispatchers.Default).launch {
-                safeCounter += 1
-                unsafeCounter += 1
-            }
-        }.forEach { it.join() }
-    }
-    return safeCounter.value to unsafeCounter
-}
-
-private fun lockDemo(): Int {
-    var unsafeValue = 0
-    val lock = reentrantLock()
-    runBlocking {
-        (0 until LIMIT).map {
-            CoroutineScope(Dispatchers.Default).launch {
-                lock.withLock { unsafeValue += 1 }
-            }
-        }.forEach { it.join() }
-    }
-    return unsafeValue
 }

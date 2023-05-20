@@ -1,4 +1,4 @@
-package com.severett.planetxcompose.jvm.model
+package com.severett.planetxcompose.common.model
 
 import kotlinx.html.FlowOrPhrasingContent
 import kotlinx.html.HTMLTag

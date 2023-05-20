@@ -26,17 +26,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.severett.planetxcompose.common.model.generateCurrentTime
+import com.severett.planetxcompose.common.model.generateDateDifference
+import com.severett.planetxcompose.common.model.generateDatesElapsed
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
 import com.severett.planetxcompose.jvm.ui.theme.ApiumBlack
 import com.severett.planetxcompose.jvm.ui.theme.europaFamily
-import kotlinx.datetime.Clock
-import kotlinx.datetime.DatePeriod
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.plus
-import kotlinx.datetime.toInstant
-import kotlinx.datetime.toLocalDateTime
-import kotlinx.datetime.todayIn
 
 private val sectionPadding = 4.dp
 private val dateDistancePadding = 4.dp
@@ -153,29 +149,5 @@ fun DateTime() {
             text = currentTime,
             fontSize = 20.sp
         )
-    }
-}
-
-private fun generateDatesElapsed(): String {
-    val beginningOfYear = "2023-01-01T00:00:00.000Z".toInstant()
-    val now = Clock.System.now()
-    val timeElapsed = now - beginningOfYear
-    return "Day ${timeElapsed.inWholeDays - 1} of the year."
-}
-
-private fun generateDateDifference(dateDistance: Int): String {
-    val currentDate = Clock.System.todayIn(TimeZone.currentSystemDefault())
-    return "$dateDistance day(s) from now is ${currentDate + DatePeriod(days = dateDistance)}"
-}
-
-private fun generateCurrentTime(timeZone: String): String {
-    return if (timeZone.isNotBlank()) {
-        val currentTime = Clock.System
-            .now()
-            .toLocalDateTime(TimeZone.of(timeZone))
-            .toString()
-        "The current time in $timeZone is $currentTime."
-    } else {
-        ""
     }
 }
