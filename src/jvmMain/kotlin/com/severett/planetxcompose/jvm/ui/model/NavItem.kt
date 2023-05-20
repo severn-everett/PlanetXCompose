@@ -2,6 +2,7 @@ package com.severett.planetxcompose.jvm.ui.model
 
 import androidx.compose.runtime.Composable
 import com.severett.planetxcompose.jvm.ui.sections.AtomicFU
+import com.severett.planetxcompose.jvm.ui.sections.DateTime
 import com.severett.planetxcompose.jvm.ui.sections.HTML
 import com.severett.planetxcompose.jvm.ui.sections.Serializable
 
@@ -30,5 +31,11 @@ val navItems = listOf(
         title = "HTML",
         navIcon = "icon/ic_HTML_black_24dp.xml",
         content = { HTML() }
+    ),
+    NavItem(
+        route = "/datetime",
+        title = "DateTime",
+        navIcon = "icon/ic_calendar_black_24dp.xml",
+        content = { DateTime() }
     ),
 )

@@ -61,6 +61,7 @@ fun HTML() {
             // Name input section
             Column {
                 Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = "Name:",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
@@ -77,6 +78,7 @@ fun HTML() {
             // Style modification section
             Column {
                 Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = "Styling:",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
