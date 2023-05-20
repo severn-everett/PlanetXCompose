@@ -23,6 +23,7 @@ import com.severett.planetxcompose.common.model.lockDemo
 import com.severett.planetxcompose.common.model.runRace
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
+import kotlinx.coroutines.runBlocking
 
 private val buttonWidth = 120.dp
 private val resultsTopMargin = 32.dp
@@ -49,7 +50,7 @@ fun AtomicFU() {
                 AppButton(
                     modifier = Modifier.width(buttonWidth),
                     onClick = {
-                        val (safeResult, unsafeResult) = runRace()
+                        val (safeResult, unsafeResult) = runBlocking { runRace() }
                         safeValue = safeResult
                         unsafeValue = unsafeResult
                         displayRaceResults = true
@@ -79,7 +80,7 @@ fun AtomicFU() {
                 AppButton(
                     modifier = Modifier.width(buttonWidth),
                     onClick = {
-                        lockDemoValue = lockDemo()
+                        lockDemoValue = runBlocking { lockDemo() }
                         displayLockDemo = true
                     },
                     text = "LOCK DEMO",

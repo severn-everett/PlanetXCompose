@@ -20,10 +20,23 @@ kotlin {
         jvmToolchain(19)
         withJava()
     }
+    js(IR) {
+        browser {
+            testTask {
+                testLogging.showStandardStreams = true
+                useKarma {
+                    useChromeHeadless()
+                    useFirefox()
+                }
+            }
+        }
+        binaries.executable()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
@@ -38,18 +51,31 @@ kotlin {
             }
         }
         val jvmTest by getting
+        val jsMain by getting {
+            dependencies {
+                implementation(compose.html.core)
+                implementation(compose.runtime)
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+            }
+        }
     }
 }
 
-compose.desktop {
-    application {
-        mainClass = "com.severett.planetxcompose.jvm.MainKt"
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "PlanetXCompose"
-            packageVersion = "1.0.0"
-            macOS {
-                iconFile.set(project.file("src/jvmMain/resources/app/apium_dark.icns"))
+compose {
+    desktop {
+        application {
+            mainClass = "com.severett.planetxcompose.jvm.MainKt"
+            nativeDistributions {
+                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+                packageName = "PlanetXCompose"
+                packageVersion = "1.0.0"
+                macOS {
+                    iconFile.set(project.file("src/jvmMain/resources/app/apium_dark.icns"))
+                }
             }
         }
     }
