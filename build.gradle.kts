@@ -74,7 +74,7 @@ compose {
                 packageName = "PlanetXCompose"
                 packageVersion = "1.0.0"
                 macOS {
-                    iconFile.set(project.file("src/jvmMain/resources/app/apium_dark.icns"))
+                    iconFile.set(project.file("src/commonMain/resources/icons/app/apium_dark.icns"))
                 }
             }
         }

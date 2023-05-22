@@ -15,7 +15,7 @@ import com.severett.planetxcompose.jvm.ui.components.AppContent
 import com.severett.planetxcompose.jvm.ui.theme.ComposeTheme
 
 fun main() = application {
-    val icon = painterResource("app/apium_dark.jpg")
+    val icon = painterResource("icons/app/apium_dark.jpg")
 
     Window(
         icon = icon,

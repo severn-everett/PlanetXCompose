@@ -5,19 +5,16 @@ import com.severett.planetxcompose.js.ui.model.navItems
 import com.severett.planetxcompose.js.ui.theme.ApiumBlack
 import com.severett.planetxcompose.js.ui.theme.ApiumGreen
 import com.severett.planetxcompose.js.ui.theme.center
+import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
-import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.backgroundColor
 import org.jetbrains.compose.web.css.bottom
 import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.css.deg
-import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.filter
 import org.jetbrains.compose.web.css.height
-import org.jetbrains.compose.web.css.justifyContent
 import org.jetbrains.compose.web.css.overflow
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.position
@@ -34,8 +31,17 @@ private val iconSize = 50.px
 
 @Composable
 fun TopBar(currentTitle: String = "") {
-    Div {
-        H3 { Text(currentTitle) }
+    Div(attrs = {
+        style {
+            backgroundColor(ApiumBlack)
+        }
+    }) {
+        H3(attrs = {
+            style {
+                centerText()
+                color(ApiumGreen)
+            }
+        }) { Text(currentTitle) }
     }
 }
 
@@ -55,10 +61,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
         navItems.forEachIndexed { i, navItem ->
             Div(
                 attrs = {
-                    onClick {
-                        println("TEST: $i")
-                        onChange.invoke(i)
-                    }
+                    onClick { onChange.invoke(i) }
                     style {
                         backgroundColor(ApiumBlack)
                         color(ApiumGreen)
@@ -88,10 +91,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                     }
                 )
                 Span(attrs = {
-                    style {
-                        display(DisplayStyle.Flex)
-                        justifyContent(JustifyContent.Center)
-                    }
+                    style { centerText() }
                 }) {
                     Text(value = navItem.title)
                 }
