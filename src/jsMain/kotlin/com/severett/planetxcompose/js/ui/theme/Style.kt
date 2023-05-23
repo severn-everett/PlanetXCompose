@@ -19,6 +19,12 @@ fun StyleScope.centerText() {
     justifyContent(JustifyContent.Center)
 }
 
+fun StyleScope.unselectable() {
+    property("-webkit-user-select", "none")
+    property("-ms-user-select", "none")
+    property("user-select", "none")
+}
+
 fun StyleScope.gridLayout(columns: Int) {
     display(DisplayStyle.Grid)
     gridTemplateColumns((0 until columns).joinToString(" ") { auto.toString() })

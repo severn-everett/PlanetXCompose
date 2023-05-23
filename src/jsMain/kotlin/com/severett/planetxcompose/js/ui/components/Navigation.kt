@@ -7,6 +7,7 @@ import com.severett.planetxcompose.js.ui.theme.ApiumGreen
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
+import com.severett.planetxcompose.js.ui.theme.unselectable
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.backgroundColor
@@ -14,29 +15,28 @@ import org.jetbrains.compose.web.css.bottom
 import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.filter
+import org.jetbrains.compose.web.css.fontWeight
 import org.jetbrains.compose.web.css.height
 import org.jetbrains.compose.web.css.overflow
+import org.jetbrains.compose.web.css.padding
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.position
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.width
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H3
+import org.jetbrains.compose.web.dom.H2
 import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
-private val navItemSize = 75.px
-private val iconSize = 50.px
+private val navItemSize = 60.px
+private val iconSize = 40.px
+private val selectedIconSize = 45.px
 
 @Composable
 fun TopBar(currentTitle: String = "") {
-    Div(attrs = {
-        style {
-            backgroundColor(ApiumBlack)
-        }
-    }) {
-        H3(attrs = {
+    Div(attrs = { style { backgroundColor(ApiumBlack) } }) {
+        H2(attrs = {
             style {
                 centerText()
                 color(ApiumGreen)
@@ -63,7 +63,11 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                 attrs = {
                     onClick { onChange.invoke(i) }
                     style {
-                        backgroundColor(ApiumBlack)
+                        if (currentIndex == i) {
+                            padding(10.px, 10.px, 15.px, 10.px)
+                        } else {
+                            padding(10.px)
+                        }
                         color(ApiumGreen)
                         height(navItemSize)
                         width(navItemSize)
@@ -76,8 +80,13 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                     src = navItem.navIcon,
                     attrs = {
                         style {
-                            height(iconSize)
-                            width(iconSize)
+                            if (currentIndex == i) {
+                                height(selectedIconSize)
+                                width(selectedIconSize)
+                            } else {
+                                height(iconSize)
+                                width(iconSize)
+                            }
                             center()
                             filter {
                                 invert(82.percent)
@@ -91,7 +100,13 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                     }
                 )
                 Span(attrs = {
-                    style { centerText() }
+                    style {
+                        centerText()
+                        unselectable()
+                        if (currentIndex == i) {
+                            fontWeight("bold")
+                        }
+                    }
                 }) {
                     Text(value = navItem.title)
                 }
