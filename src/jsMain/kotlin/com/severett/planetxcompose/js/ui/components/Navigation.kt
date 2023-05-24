@@ -1,6 +1,10 @@
 package com.severett.planetxcompose.js.ui.components
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.severett.planetxcompose.js.ui.model.navItems
 import com.severett.planetxcompose.js.ui.theme.ApiumBlack
 import com.severett.planetxcompose.js.ui.theme.ApiumGreen
@@ -24,19 +28,21 @@ import org.jetbrains.compose.web.css.position
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.width
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H2
+import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
 private val navItemSize = 60.px
-private val iconSize = 40.px
-private val selectedIconSize = 45.px
+private val navItemSidePadding = 10.px
+private val normalIconSize = 40.px
+private val selectedIconSize = 42.px
+private val highlightedIconSize = 45.px
 
 @Composable
 fun TopBar(currentTitle: String = "") {
     Div(attrs = { style { backgroundColor(ApiumBlack) } }) {
-        H2(attrs = {
+        H1(attrs = {
             style {
                 centerText()
                 color(ApiumGreen)
@@ -48,6 +54,7 @@ fun TopBar(currentTitle: String = "") {
 @OptIn(ExperimentalComposeWebApi::class)
 @Composable
 fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
+    var highlightedIndex by remember { mutableStateOf(-1) }
     Div(attrs = {
         style {
             overflow("Hidden")
@@ -62,12 +69,15 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
             Div(
                 attrs = {
                     onClick { onChange.invoke(i) }
+                    onMouseEnter { highlightedIndex = i }
+                    onMouseLeave { highlightedIndex = -1 }
                     style {
-                        if (currentIndex == i) {
-                            padding(10.px, 10.px, 15.px, 10.px)
-                        } else {
-                            padding(10.px)
+                        val navItemTopPadding = when (i) {
+                            highlightedIndex -> 10.px
+                            currentIndex -> 13.px
+                            else -> 15.px
                         }
+                        padding(navItemTopPadding, navItemSidePadding)
                         color(ApiumGreen)
                         height(navItemSize)
                         width(navItemSize)
@@ -80,13 +90,13 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                     src = navItem.navIcon,
                     attrs = {
                         style {
-                            if (currentIndex == i) {
-                                height(selectedIconSize)
-                                width(selectedIconSize)
-                            } else {
-                                height(iconSize)
-                                width(iconSize)
+                            val iconSize = when (i) {
+                                highlightedIndex -> highlightedIconSize
+                                currentIndex -> selectedIconSize
+                                else -> normalIconSize
                             }
+                            height(iconSize)
+                            width(iconSize)
                             center()
                             filter {
                                 invert(82.percent)
@@ -103,7 +113,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                     style {
                         centerText()
                         unselectable()
-                        if (currentIndex == i) {
+                        if (currentIndex == i || highlightedIndex == i) {
                             fontWeight("bold")
                         }
                     }
