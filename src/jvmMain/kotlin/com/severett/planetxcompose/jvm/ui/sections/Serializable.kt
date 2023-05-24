@@ -22,7 +22,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.severett.planetxcompose.common.model.runSerde
+import com.severett.planetxcompose.common.serde.runSerde
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.InputField
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel

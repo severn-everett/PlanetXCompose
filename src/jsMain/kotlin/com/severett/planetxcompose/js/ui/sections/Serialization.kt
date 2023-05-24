@@ -5,7 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.severett.planetxcompose.common.model.runSerde
+import com.severett.planetxcompose.common.serde.runSerde
 import com.severett.planetxcompose.js.ui.components.AppButton
 import com.severett.planetxcompose.js.ui.components.InputField
 import com.severett.planetxcompose.js.ui.components.SectionLabel
@@ -53,11 +53,7 @@ fun Serialization() {
         InputField(type = InputType.Text, placeHolder = "Bazz Value") { bazzText = it }
         SectionLabel(text = "Enter Count:")
         InputField(type = InputType.Number, placeHolder = "0") { countText = it }
-        Div(attrs = {
-            style {
-                gridLayout(2)
-            }
-        }) {
+        Div(attrs = { style { gridLayout(2) } }) {
             Div(attrs = {
                 style {
                     gridLayout(2)
