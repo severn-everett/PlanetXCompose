@@ -23,6 +23,7 @@ fun AppButton(
 ) {
     Button(attrs = {
         onClick { onClick.invoke() }
+        classes("w3-ripple")
         style {
             center()
             backgroundColor(ApiumBlack)

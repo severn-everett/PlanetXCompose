@@ -100,7 +100,7 @@ fun AtomicFU() {
 }
 
 @Composable
-private inline fun RowScope.DisplayColumn(content: @Composable ColumnScope.() -> Unit) {
+private fun RowScope.DisplayColumn(content: @Composable ColumnScope.() -> Unit) {
     Column(
         modifier = Modifier.weight(1f),
         horizontalAlignment = Alignment.CenterHorizontally,

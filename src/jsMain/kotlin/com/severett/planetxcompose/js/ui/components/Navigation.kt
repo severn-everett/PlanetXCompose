@@ -16,6 +16,7 @@ import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.backgroundColor
 import org.jetbrains.compose.web.css.bottom
+import org.jetbrains.compose.web.css.boxSizing
 import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.filter
@@ -59,6 +60,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
         style {
             overflow("Hidden")
             position(Position.Fixed)
+            boxSizing("initial")
             bottom(0.px)
             width(100.percent)
             backgroundColor(ApiumBlack)

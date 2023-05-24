@@ -7,6 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.severett.planetxcompose.common.serde.runSerde
 import com.severett.planetxcompose.js.ui.components.AppButton
+import com.severett.planetxcompose.js.ui.components.ContentPane
 import com.severett.planetxcompose.js.ui.components.InputField
 import com.severett.planetxcompose.js.ui.components.SectionLabel
 import com.severett.planetxcompose.js.ui.theme.ApiumGreen
@@ -14,10 +15,8 @@ import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.attributes.InputType
-import org.jetbrains.compose.web.css.em
 import org.jetbrains.compose.web.css.fontSize
 import org.jetbrains.compose.web.css.fontWeight
-import org.jetbrains.compose.web.css.margin
 import org.jetbrains.compose.web.css.marginLeft
 import org.jetbrains.compose.web.css.paddingLeft
 import org.jetbrains.compose.web.css.paddingRight
@@ -41,12 +40,7 @@ fun Serialization() {
     var displaySerdeLabels by remember { mutableStateOf(false) }
     var serializedDisplay by remember { mutableStateOf("") }
     var deserializedDisplay by remember { mutableStateOf("") }
-    Div(attrs = {
-        style {
-            gridLayout(1)
-            margin(4.em)
-        }
-    }) {
+    ContentPane {
         SectionLabel(text = "Enter Fizz:")
         InputField(type = InputType.Text, placeHolder = "Fizz Value") { fizzText = it }
         SectionLabel(text = "Enter Bazz (Comma-Separated):")
