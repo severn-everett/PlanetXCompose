@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.severett.planetxcompose.common.model.s
+import com.severett.planetxcompose.common.sections.generateHTML
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.InputField
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
@@ -33,8 +34,13 @@ import kotlinx.html.a
 import kotlinx.html.b
 import kotlinx.html.div
 import kotlinx.html.dom.createHTMLDocument
+import kotlinx.html.dom.document
 import kotlinx.html.dom.serialize
+import kotlinx.html.html
+import kotlinx.html.mathml
 import kotlinx.html.p
+import kotlinx.html.stream.appendHTML
+import kotlinx.html.stream.createHTML
 import kotlinx.html.style
 
 private val styleLabelSize = 18.sp
@@ -157,27 +163,4 @@ fun HTML() {
             fontSize = 20.sp
         )
     }
-}
-
-private fun generateHTML(
-    helloStr: String,
-    isBold: Boolean,
-    isUnderlined: Boolean,
-    isStrikethrough: Boolean
-): String {
-    val underlineStr =
-        if (isUnderlined) "text-decoration-line: underline;" else null
-    return createHTMLDocument().div {
-        p {
-            if (underlineStr != null) style = underlineStr
-            when {
-                isBold -> b { if (isStrikethrough) s { +helloStr } else +helloStr }
-                isStrikethrough -> s { +helloStr }
-                else -> +helloStr
-            }
-        }
-        a("https://github.com/kotlin/kotlinx.html") {
-            +"Would you like to know more?"
-        }
-    }.documentElement.serialize()
 }
