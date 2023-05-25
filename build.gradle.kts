@@ -50,7 +50,15 @@ kotlin {
                 implementation("org.jetbrains.compose.material3:material3-desktop:1.4.0")
             }
         }
-        val jvmTest by getting
+        val jvmTest by getting {
+            val junitVersion: String by project
+            dependencies {
+                implementation("org.jctools:jctools-core:4.0.1")
+                implementation("org.jetbrains.kotlinx:lincheck:2.17")
+                implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+                runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+            }
+        }
         val jsMain by getting {
             dependencies {
                 implementation(compose.html.core)
@@ -80,4 +88,21 @@ compose {
             }
         }
     }
+}
+
+tasks.getByName<Test>("jvmTest") {
+    useJUnitPlatform()
+    jvmArgs = listOf(
+        // Arguments that are required for working with classes from
+        // the java.util package
+        "--add-opens",
+        "java.base/jdk.internal.misc=ALL-UNNAMED",
+        "--add-exports",
+        "java.base/jdk.internal.util=ALL-UNNAMED",
+        // Arguments that are to be uncommented for LockCoarseningTest
+        // "-XX:+UnlockDiagnosticVMOptions",
+        // "-XX:+StressLCM",
+        // "-XX:+StressGCM",
+        // "-XX:-EliminateLocks",
+    )
 }
