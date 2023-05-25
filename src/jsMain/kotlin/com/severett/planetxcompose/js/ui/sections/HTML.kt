@@ -14,8 +14,6 @@ import com.severett.planetxcompose.js.ui.theme.ApiumGreen
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
-import kotlinx.browser.document
-import kotlinx.html.stream.createHTML
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.css.StyleScope
@@ -23,7 +21,6 @@ import org.jetbrains.compose.web.css.fontSize
 import org.jetbrains.compose.web.css.fontWeight
 import org.jetbrains.compose.web.css.marginLeft
 import org.jetbrains.compose.web.css.marginRight
-import org.jetbrains.compose.web.css.padding
 import org.jetbrains.compose.web.css.paddingTop
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.textDecoration

@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import com.severett.planetxcompose.js.ui.model.navItems
 import com.severett.planetxcompose.js.ui.theme.ApiumBlack
 import com.severett.planetxcompose.js.ui.theme.ApiumGreen
+import com.severett.planetxcompose.js.ui.theme.apiumGreenFilter
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
@@ -18,8 +19,6 @@ import org.jetbrains.compose.web.css.backgroundColor
 import org.jetbrains.compose.web.css.bottom
 import org.jetbrains.compose.web.css.boxSizing
 import org.jetbrains.compose.web.css.color
-import org.jetbrains.compose.web.css.deg
-import org.jetbrains.compose.web.css.filter
 import org.jetbrains.compose.web.css.fontWeight
 import org.jetbrains.compose.web.css.height
 import org.jetbrains.compose.web.css.overflow
@@ -100,14 +99,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                             height(iconSize)
                             width(iconSize)
                             center()
-                            filter {
-                                invert(82.percent)
-                                sepia(44.percent)
-                                saturate(455.percent)
-                                hueRotate(72.deg)
-                                brightness(96.percent)
-                                contrast(98.percent)
-                            }
+                            apiumGreenFilter()
                         }
                     }
                 )
