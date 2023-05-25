@@ -4,6 +4,7 @@ import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.display
+import org.jetbrains.compose.web.css.fr
 import org.jetbrains.compose.web.css.gridTemplateColumns
 import org.jetbrains.compose.web.css.justifyContent
 import org.jetbrains.compose.web.css.keywords.auto
@@ -27,5 +28,5 @@ fun StyleScope.unselectable() {
 
 fun StyleScope.gridLayout(columns: Int) {
     display(DisplayStyle.Grid)
-    gridTemplateColumns((0 until columns).joinToString(" ") { auto.toString() })
+    gridTemplateColumns((0 until columns).joinToString(" ") { 1.fr.toString() })
 }

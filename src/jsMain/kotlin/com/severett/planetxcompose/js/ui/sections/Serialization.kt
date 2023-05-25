@@ -15,6 +15,8 @@ import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.attributes.InputType
+import org.jetbrains.compose.web.css.DisplayStyle
+import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.fontSize
 import org.jetbrains.compose.web.css.fontWeight
 import org.jetbrains.compose.web.css.marginLeft
@@ -87,18 +89,27 @@ fun Serialization() {
 @OptIn(ExperimentalComposeWebApi::class)
 @Composable
 private fun RadioButton(id: String, text: String, checked: Boolean, onClicked: () -> Unit) {
-    Label(forId = id, attrs = { style { fontSize(18.px) } }) { Text(text) }
-    RadioInput(checked = checked, attrs = {
-        id(id)
-        onClick { onClicked.invoke() }
+    Div(attrs = {
         style {
-            if (checked) property("accent-color", ApiumGreen.toString())
-            transform {
-                scale(1.5)
-            }
-            marginLeft(8.px)
+            property("margin-left", "auto")
+            property("margin-right", "0")
         }
-    })
+    }) {
+        Label(forId = id, attrs = { style { fontSize(18.px) } }) { Text(text) }
+    }
+    Div {
+        RadioInput(checked = checked, attrs = {
+            id(id)
+            onClick { onClicked.invoke() }
+            style {
+                display(DisplayStyle.Inline)
+                property("vertical-align", "middle")
+                marginLeft(12.px)
+                if (checked) property("accent-color", ApiumGreen.toString())
+                transform { scale(1.5) }
+            }
+        })
+    }
 }
 
 @Composable
