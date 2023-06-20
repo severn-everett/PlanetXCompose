@@ -29,7 +29,7 @@ val navItems = listOf(
     NavItem(
         route = "/html",
         title = "HTML",
-        navIcon = "icon/ic_HTML_black_24dp.xml",
+        navIcon = "icon/ic_html_black_24dp.xml",
         content = { HTML() }
     ),
     NavItem(

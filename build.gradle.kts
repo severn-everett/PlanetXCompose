@@ -39,7 +39,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
             }
         }
         val jvmMain by getting {
@@ -54,7 +54,7 @@ kotlin {
             val junitVersion: String by project
             dependencies {
                 implementation("org.jctools:jctools-core:4.0.1")
-                implementation("org.jetbrains.kotlinx:lincheck:2.17")
+                implementation("org.jetbrains.kotlinx:lincheck:2.18.1")
                 implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
                 runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
             }
