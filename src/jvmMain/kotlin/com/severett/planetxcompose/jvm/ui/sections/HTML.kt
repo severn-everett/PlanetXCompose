@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,23 +26,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.severett.planetxcompose.common.model.s
 import com.severett.planetxcompose.common.sections.generateHTML
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.InputField
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
-import kotlinx.html.a
-import kotlinx.html.b
-import kotlinx.html.div
-import kotlinx.html.dom.createHTMLDocument
-import kotlinx.html.dom.document
-import kotlinx.html.dom.serialize
-import kotlinx.html.html
-import kotlinx.html.mathml
-import kotlinx.html.p
-import kotlinx.html.stream.appendHTML
-import kotlinx.html.stream.createHTML
-import kotlinx.html.style
+import com.severett.planetxcompose.jvm.ui.theme.DarkNavy
 
 private val styleLabelSize = 18.sp
 
@@ -93,11 +82,9 @@ fun HTML() {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Checkbox(
-                        onCheckedChange = {
-                            isBoldChecked = !isBoldChecked
-                        },
+                    XCheckbox(
                         checked = isBoldChecked,
+                        onCheckedChange = { isBoldChecked = !isBoldChecked },
                     )
                     Text(
                         text = "Bold",
@@ -109,11 +96,9 @@ fun HTML() {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Checkbox(
-                        onCheckedChange = {
-                            isStrikethroughChecked = !isStrikethroughChecked
-                        },
+                    XCheckbox(
                         checked = isStrikethroughChecked,
+                        onCheckedChange = { isStrikethroughChecked = !isStrikethroughChecked },
                     )
                     Text(
                         text = "Strikethrough",
@@ -125,9 +110,9 @@ fun HTML() {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Checkbox(
-                        onCheckedChange = { isUnderlinedChecked = !isUnderlinedChecked },
+                    XCheckbox(
                         checked = isUnderlinedChecked,
+                        onCheckedChange = { isUnderlinedChecked = !isUnderlinedChecked },
                     )
                     Text(
                         text = "Underlined",
@@ -163,4 +148,13 @@ fun HTML() {
             fontSize = 20.sp
         )
     }
+}
+
+@Composable
+private fun XCheckbox(checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    Checkbox(
+        checked = checked,
+        onCheckedChange = onCheckedChange,
+        colors = CheckboxDefaults.colors(checkedColor = DarkNavy, uncheckedColor = DarkNavy),
+    )
 }

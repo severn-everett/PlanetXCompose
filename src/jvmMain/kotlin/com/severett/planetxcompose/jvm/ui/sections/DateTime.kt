@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilledTonalButton
@@ -32,8 +33,9 @@ import com.severett.planetxcompose.common.model.generateCurrentTime
 import com.severett.planetxcompose.common.model.generateDateDifference
 import com.severett.planetxcompose.common.model.generateDatesElapsed
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
-import com.severett.planetxcompose.jvm.ui.theme.ApiumBlack
-import com.severett.planetxcompose.jvm.ui.theme.europaFamily
+import com.severett.planetxcompose.jvm.ui.theme.Beige
+import com.severett.planetxcompose.jvm.ui.theme.DarkNavy
+import com.severett.planetxcompose.jvm.ui.theme.lexendFamily
 
 private val sectionPadding = 4.dp
 private val dateDistancePadding = 4.dp
@@ -97,13 +99,13 @@ fun DateTime() {
                             modifier = Modifier.width(165.dp),
                             text = selectedTimeZone,
                             fontSize = 18.sp,
-                            color = ApiumBlack,
+                            color = DarkNavy,
                             textAlign = TextAlign.Right
                         )
                         Icon(
                             Icons.Default.ArrowDropDown,
                             contentDescription = null,
-                            tint = ApiumBlack
+                            tint = DarkNavy
                         )
                     }
                 }
@@ -120,7 +122,7 @@ fun DateTime() {
                             text = {
                                 Text(
                                     text = timeZone,
-                                    fontFamily = europaFamily,
+                                    fontFamily = lexendFamily,
                                     fontSize = 18.sp
                                 )
                             },
@@ -157,6 +159,7 @@ private fun IconButton(
     FilledTonalButton(
         modifier = modifier,
         shape = MaterialTheme.shapes.extraSmall,
+        colors = ButtonDefaults.buttonColors(containerColor = DarkNavy, contentColor = Beige),
         onClick = onClick
     ) {
         Icon(

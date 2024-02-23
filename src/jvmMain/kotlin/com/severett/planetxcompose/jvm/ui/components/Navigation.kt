@@ -11,13 +11,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.severett.planetxcompose.jvm.ui.model.navItems
-import com.severett.planetxcompose.jvm.ui.theme.europaFamily
+import com.severett.planetxcompose.jvm.ui.theme.lexendFamily
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(currentTitle: String = "") {
     CenterAlignedTopAppBar(
-        title = { Text(text = currentTitle, fontFamily = europaFamily, fontWeight = FontWeight.Bold) }
+        title = { Text(text = currentTitle, fontFamily = lexendFamily, fontWeight = FontWeight.Bold) }
     )
 }
 
@@ -34,7 +34,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                            contentDescription = "${navItem.title}_NavItem"
                        )
                 },
-                label = { Text(text = navItem.title, fontFamily = europaFamily, fontSize = 13.sp) },
+                label = { Text(text = navItem.title, fontFamily = lexendFamily, fontSize = 13.sp) },
                 alwaysShowLabel = true,
             )
         }

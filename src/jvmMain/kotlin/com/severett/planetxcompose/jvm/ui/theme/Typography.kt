@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
 
-val europaFamily = FontFamily(
+val lexendFamily = FontFamily(
     Font(resource = "font/lexend_regular.ttf", weight = FontWeight.Normal),
     Font(resource = "font/lexend_bold.ttf", weight = FontWeight.Bold),
 )
@@ -15,7 +15,7 @@ val europaFamily = FontFamily(
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = europaFamily,
+        fontFamily = lexendFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,

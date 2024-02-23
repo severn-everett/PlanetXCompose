@@ -5,14 +5,14 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val LightColorScheme = lightColorScheme(
-    primary = ApiumGreen,
-    onPrimary = ApiumBlack,
-    secondary = ApiumBlack,
-    surface = ApiumBlack,
-    onSurface = ApiumGreen,
-    secondaryContainer = ApiumBlack,
-    onSecondaryContainer = ApiumGreen,
-    onSurfaceVariant = ApiumGreen,
+    primary = White,
+    onPrimary = DarkNavy,
+    secondary = DarkNavy,
+    surface = DarkNavy,
+    onSurface = White,
+    secondaryContainer = DarkNavy,
+    onSecondaryContainer = White,
+    onSurfaceVariant = White,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

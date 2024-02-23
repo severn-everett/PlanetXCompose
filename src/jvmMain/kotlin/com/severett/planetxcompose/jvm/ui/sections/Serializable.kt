@@ -7,6 +7,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,6 +27,7 @@ import com.severett.planetxcompose.common.serde.runSerde
 import com.severett.planetxcompose.jvm.ui.components.AppButton
 import com.severett.planetxcompose.jvm.ui.components.InputField
 import com.severett.planetxcompose.jvm.ui.components.SectionLabel
+import com.severett.planetxcompose.jvm.ui.theme.DarkNavy
 
 private val inputBottomMargin = 4.dp
 private val displayTopMargin = 6.dp
@@ -91,14 +93,14 @@ fun Serializable() {
                 .padding(top = inputBottomMargin)
         ) {
             // "Normal" serde radio button
-            RadioButton(selected = isNormalSerde, onClick = { isNormalSerde = true })
+            XRadioButton(selected = isNormalSerde, onClick = { isNormalSerde = true })
             Text(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 text = "Normal",
                 fontSize = 20.sp,
             )
             // "Third-Party" serde radio button
-            RadioButton(selected = !isNormalSerde, onClick = { isNormalSerde = false })
+            XRadioButton(selected = !isNormalSerde, onClick = { isNormalSerde = false })
             Text(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 text = "Third-Party",
@@ -147,4 +149,13 @@ fun Serializable() {
             )
         }
     }
+}
+
+@Composable
+private fun XRadioButton(selected: Boolean, onClick: () -> Unit) {
+    RadioButton(
+        selected = selected,
+        onClick = onClick,
+        colors = RadioButtonDefaults.colors(selectedColor = DarkNavy, unselectedColor = DarkNavy),
+    )
 }

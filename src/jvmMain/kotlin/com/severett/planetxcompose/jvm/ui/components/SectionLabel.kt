@@ -15,8 +15,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.severett.planetxcompose.jvm.ui.theme.ApiumBlack
-import com.severett.planetxcompose.jvm.ui.theme.ApiumGreen
+import com.severett.planetxcompose.jvm.ui.theme.DarkNavy
+import com.severett.planetxcompose.jvm.ui.theme.White
 
 @Composable
 fun SectionLabel(
@@ -31,7 +31,7 @@ fun SectionLabel(
             .fillMaxWidth()
             .background(
                 shape = RectangleShape,
-                color = ApiumGreen,
+                color = DarkNavy,
             ),
         contentAlignment = Alignment.Center
     ) {
@@ -41,7 +41,7 @@ fun SectionLabel(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(horizontal = padding),
             textAlign = textAlign,
-            color = ApiumBlack
+            color = White
         )
     }
 }
