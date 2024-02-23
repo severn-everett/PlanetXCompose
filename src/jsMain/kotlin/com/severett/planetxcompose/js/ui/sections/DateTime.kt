@@ -14,7 +14,6 @@ import com.severett.planetxcompose.js.ui.theme.ApiumBlack
 import com.severett.planetxcompose.js.ui.theme.apiumGreenFilter
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
-import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.alignItems
@@ -149,7 +148,6 @@ fun DateTime() {
     }
 }
 
-@OptIn(ExperimentalComposeWebApi::class)
 @Composable
 private fun IconButton(iconPath: String, onClick: () -> Unit) {
     Button(attrs = {

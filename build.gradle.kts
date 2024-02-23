@@ -44,10 +44,11 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
+                val composeVersion = extra["compose.version"] as String
                 implementation(compose.desktop.currentOs) {
                     exclude(group = "org.jetbrains.compose.material", module = "material")
                 }
-                implementation("org.jetbrains.compose.material3:material3-desktop:1.4.0")
+                implementation("org.jetbrains.compose.material3:material3-desktop:$composeVersion")
             }
         }
         val jvmTest by getting {
@@ -83,7 +84,7 @@ compose {
                 packageName = "PlanetXCompose"
                 packageVersion = "1.0.0"
                 macOS {
-                    iconFile.set(project.file("src/commonMain/resources/icons/app/apium_dark.icns"))
+                    // iconFile.set(project.file("src/commonMain/resources/icons/app/apium_dark.icns"))
                 }
             }
         }

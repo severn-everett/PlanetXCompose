@@ -10,7 +10,6 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +38,6 @@ import com.severett.planetxcompose.jvm.ui.theme.europaFamily
 private val sectionPadding = 4.dp
 private val dateDistancePadding = 4.dp
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DateTime() {
     var dateDistance by rememberSaveable { mutableStateOf(45) }
