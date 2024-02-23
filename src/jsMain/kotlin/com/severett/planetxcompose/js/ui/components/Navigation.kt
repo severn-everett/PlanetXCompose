@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.severett.planetxcompose.js.ui.model.navItems
-import com.severett.planetxcompose.js.ui.theme.ApiumBlack
-import com.severett.planetxcompose.js.ui.theme.ApiumGreen
-import com.severett.planetxcompose.js.ui.theme.apiumGreenFilter
+import com.severett.planetxcompose.js.ui.theme.DarkNavy
+import com.severett.planetxcompose.js.ui.theme.White
+import com.severett.planetxcompose.js.ui.theme.beigeFilter
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
@@ -41,11 +41,11 @@ private val highlightedIconSize = 45.px
 
 @Composable
 fun TopBar(currentTitle: String = "") {
-    Div(attrs = { style { backgroundColor(ApiumBlack) } }) {
+    Div(attrs = { style { backgroundColor(DarkNavy) } }) {
         H1(attrs = {
             style {
                 centerText()
-                color(ApiumGreen)
+                color(White)
             }
         }) { Text(currentTitle) }
     }
@@ -62,7 +62,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
             boxSizing("initial")
             bottom(0.px)
             width(100.percent)
-            backgroundColor(ApiumBlack)
+            backgroundColor(DarkNavy)
             gridLayout(navItems.size)
         }
     }) {
@@ -79,7 +79,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                             else -> 15.px
                         }
                         padding(navItemTopPadding, navItemSidePadding)
-                        color(ApiumGreen)
+                        color(White)
                         height(navItemSize)
                         width(navItemSize)
                         center()
@@ -99,7 +99,7 @@ fun BottomNavigationBar(currentIndex: Int, onChange: (Int) -> Unit) {
                             height(iconSize)
                             width(iconSize)
                             center()
-                            apiumGreenFilter()
+                            beigeFilter()
                         }
                     }
                 )

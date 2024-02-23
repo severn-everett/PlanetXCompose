@@ -1,6 +1,8 @@
 package com.severett.planetxcompose.js.ui.theme
 
+import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.rgba
 
-val ApiumBlack = rgba(r = 39, g = 39, b = 39, a = 1)
-val ApiumGreen = rgba(r = 123, g = 244, b = 151, a = 1)
+val Beige = rgba(r = 217, g = 196, b = 177, a = 1)
+val DarkNavy = rgba(r = 49, g = 57, b = 77, a = 1)
+val White = Color.white

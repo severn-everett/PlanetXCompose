@@ -8,8 +8,8 @@ import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.sp
 
 val europaFamily = FontFamily(
-    Font("font/europa_regular.ttf", FontWeight.Normal),
-    Font("font/europa_bold.ttf", FontWeight.Bold)
+    Font(resource = "font/lexend_regular.ttf", weight = FontWeight.Normal),
+    Font(resource = "font/lexend_bold.ttf", weight = FontWeight.Bold),
 )
 
 // Set of Material typography styles to start with
@@ -19,7 +19,7 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
+        letterSpacing = 0.5.sp,
     )
     /* Other default text styles to override
     titleLarge = TextStyle(

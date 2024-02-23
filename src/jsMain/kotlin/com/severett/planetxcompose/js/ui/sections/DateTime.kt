@@ -10,8 +10,8 @@ import com.severett.planetxcompose.common.model.generateDateDifference
 import com.severett.planetxcompose.common.model.generateDatesElapsed
 import com.severett.planetxcompose.js.ui.components.ContentPane
 import com.severett.planetxcompose.js.ui.components.SectionLabel
-import com.severett.planetxcompose.js.ui.theme.ApiumBlack
-import com.severett.planetxcompose.js.ui.theme.apiumGreenFilter
+import com.severett.planetxcompose.js.ui.theme.DarkNavy
+import com.severett.planetxcompose.js.ui.theme.beigeFilter
 import com.severett.planetxcompose.js.ui.theme.center
 import com.severett.planetxcompose.js.ui.theme.centerText
 import org.jetbrains.compose.web.css.DisplayStyle
@@ -155,7 +155,7 @@ private fun IconButton(iconPath: String, onClick: () -> Unit) {
         classes("w3-ripple")
         style {
             center()
-            backgroundColor(ApiumBlack)
+            backgroundColor(DarkNavy)
             border(style = LineStyle.None)
             borderRadius(4.px)
             padding(12.px)
@@ -168,7 +168,7 @@ private fun IconButton(iconPath: String, onClick: () -> Unit) {
                     height(iconSize)
                     width(iconSize)
                     center()
-                    apiumGreenFilter()
+                    beigeFilter()
                 }
             }
         )

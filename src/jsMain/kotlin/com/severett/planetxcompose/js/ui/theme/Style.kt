@@ -36,13 +36,16 @@ fun StyleScope.gridLayout(columns: Int) {
 }
 
 @OptIn(ExperimentalComposeWebApi::class)
-fun StyleScope.apiumGreenFilter() {
+fun StyleScope.beigeFilter() {
+    /*
+    filter: brightness(0) saturate(100%) invert(91%) sepia(13%) saturate(563%) hue-rotate(333deg) brightness(90%) contrast(89%);
+     */
     filter {
-        invert(82.percent)
-        sepia(44.percent)
-        saturate(455.percent)
-        hueRotate(72.deg)
-        brightness(96.percent)
-        contrast(98.percent)
+        invert(91.percent)
+        sepia(13.percent)
+        saturate(56.percent)
+        hueRotate(333.deg)
+        brightness(90.percent)
+        contrast(89.percent)
     }
 }

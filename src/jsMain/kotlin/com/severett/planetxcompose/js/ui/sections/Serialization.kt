@@ -10,7 +10,7 @@ import com.severett.planetxcompose.js.ui.components.AppButton
 import com.severett.planetxcompose.js.ui.components.ContentPane
 import com.severett.planetxcompose.js.ui.components.InputField
 import com.severett.planetxcompose.js.ui.components.SectionLabel
-import com.severett.planetxcompose.js.ui.theme.ApiumGreen
+import com.severett.planetxcompose.js.ui.theme.DarkNavy
 import com.severett.planetxcompose.js.ui.theme.centerText
 import com.severett.planetxcompose.js.ui.theme.gridLayout
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
@@ -105,7 +105,7 @@ private fun RadioButton(id: String, text: String, checked: Boolean, onClicked: (
                 display(DisplayStyle.Inline)
                 property("vertical-align", "middle")
                 marginLeft(12.px)
-                if (checked) property("accent-color", ApiumGreen.toString())
+                if (checked) property("accent-color", DarkNavy.toString())
                 transform { scale(1.5) }
             }
         })

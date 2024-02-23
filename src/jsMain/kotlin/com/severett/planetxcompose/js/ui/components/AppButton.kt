@@ -1,8 +1,8 @@
 package com.severett.planetxcompose.js.ui.components
 
 import androidx.compose.runtime.Composable
-import com.severett.planetxcompose.js.ui.theme.ApiumBlack
-import com.severett.planetxcompose.js.ui.theme.ApiumGreen
+import com.severett.planetxcompose.js.ui.theme.Beige
+import com.severett.planetxcompose.js.ui.theme.DarkNavy
 import com.severett.planetxcompose.js.ui.theme.center
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.backgroundColor
@@ -26,8 +26,8 @@ fun AppButton(
         classes("w3-ripple")
         style {
             center()
-            backgroundColor(ApiumBlack)
-            color(ApiumGreen)
+            backgroundColor(Beige)
+            color(DarkNavy)
             border(style = LineStyle.None)
             borderRadius(4.px)
             padding(16.px)
