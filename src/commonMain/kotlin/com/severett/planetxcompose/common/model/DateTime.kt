@@ -9,7 +9,7 @@ import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 
 fun generateDatesElapsed(): String {
-    val beginningOfYear = "2023-01-01T00:00:00.000Z".toInstant()
+    val beginningOfYear = "2024-01-01T00:00:00.000Z".toInstant()
     val now = Clock.System.now()
     val timeElapsed = now - beginningOfYear
     return "Day ${timeElapsed.inWholeDays - 1} of the year."

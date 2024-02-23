@@ -64,7 +64,7 @@ kotlin {
             dependencies {
                 implementation(compose.html.core)
                 implementation(compose.runtime)
-                implementation(npm("@js-joda/timezone", "^2.18.0"))
+                implementation(npm("@js-joda/timezone", "^2.18.2"))
             }
         }
         val jsTest by getting {
