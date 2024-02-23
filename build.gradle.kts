@@ -55,7 +55,7 @@ kotlin {
             val junitVersion: String by project
             dependencies {
                 implementation("org.jctools:jctools-core:4.0.1")
-                implementation("org.jetbrains.kotlinx:lincheck:2.18.1")
+                implementation("org.jetbrains.kotlinx:lincheck:2.26")
                 implementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
                 runtimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
             }
