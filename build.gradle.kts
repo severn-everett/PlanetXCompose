@@ -17,7 +17,7 @@ repositories {
 
 kotlin {
     jvm {
-        jvmToolchain(19)
+        jvmToolchain(21)
         withJava()
     }
     js(IR) {
