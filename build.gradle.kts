@@ -35,9 +35,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:atomicfu:0.23.2")
+                implementation("org.jetbrains.kotlinx:atomicfu:0.24.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-html:0.11.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
             }
@@ -64,7 +64,7 @@ kotlin {
             dependencies {
                 implementation(compose.html.core)
                 implementation(compose.runtime)
-                implementation(npm("@js-joda/timezone", "^2.18.2"))
+                implementation(npm("@js-joda/timezone", "2.21.0"))
             }
         }
         val jsTest by getting {

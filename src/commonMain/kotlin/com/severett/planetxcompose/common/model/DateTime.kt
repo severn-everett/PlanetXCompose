@@ -2,14 +2,14 @@ package com.severett.planetxcompose.common.model
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.DatePeriod
+import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.plus
-import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 
 fun generateDatesElapsed(): String {
-    val beginningOfYear = "2024-01-01T00:00:00.000Z".toInstant()
+    val beginningOfYear = Instant.parse("2024-01-01T00:00:00.000Z")
     val now = Clock.System.now()
     val timeElapsed = now - beginningOfYear
     return "Day ${timeElapsed.inWholeDays - 1} of the year."
