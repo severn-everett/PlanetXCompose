@@ -2,6 +2,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.compose")
     kotlin("plugin.serialization")
     id("org.jetbrains.compose")
 }
@@ -16,10 +17,9 @@ repositories {
 }
 
 kotlin {
-    jvm {
-        jvmToolchain(21)
-        withJava()
-    }
+    jvmToolchain(21)
+
+    jvm {}
     js(IR) {
         browser {
             testTask {
